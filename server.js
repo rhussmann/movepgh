@@ -2,6 +2,15 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
+var mongoose = require("mongoose");
+
+
+// Mongo configuration parameters
+var MONGO_ROOT_URL = process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/';
+var MONGO_URL = MONGO_ROOT_URL + 'movepgh';
+
+
+var facet_controller = require('./controller/facet_controller');
 
 
 /**
@@ -109,6 +118,11 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
+		
+		
+        self.routes['/api/facets'] = function(req, res) {
+            facet_controller.getFacets(req, res);
+        };
     };
 
 
@@ -119,6 +133,9 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
+	
+		// Connect to mongo
+		mongoose.connect(MONGO_URL);
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
