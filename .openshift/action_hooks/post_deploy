@@ -2,11 +2,14 @@
 # This is a simple post deploy hook executed after your application
 # is deployed and started.  This script gets executed directly, so
 # it could be python, php, ruby, etc.
+REPO_PATH="../../app-root/repo"
+
 echo "Updating facets..."
-node ../../app-root/repo/script/import_facets.js
+cd $REPO_PATH
+node script/import_facets.js
 
 echo "Updating neighborhoods..."
-node ../../app-root/repo/script/import_hoods.js
+node script/import_hoods.js
 
 echo "Updating scores..."
-node ../../app-root/repo/script/import_scores.js
+node script/import_scores.js
