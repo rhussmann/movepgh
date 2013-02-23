@@ -44,7 +44,9 @@ csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Facets.csv
 })
 
 // Error parsing CSV, bail
-.on("error", disconnectMongoose);
+.on("error", function(error) {
+  console.log("Error importing facets from CSV: " + error.message)
+});
 
 function createAsyncMongooseUpdateFunction(facet) {
   return function mongooseUpdateFacet(callback) {

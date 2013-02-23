@@ -2,3 +2,11 @@
 # This is a simple post deploy hook executed after your application
 # is deployed and started.  This script gets executed directly, so
 # it could be python, php, ruby, etc.
+echo "Updating facets..."
+node script/import_facets.js
+
+echo "Updating neighborhoods..."
+node script/import_hoods.js
+
+echo "Updating scores..."
+node script/import_scores.js

@@ -40,8 +40,8 @@ csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Neighborho
   });
 })
 
-.on("error", function() {
-  console.log("Error importing neighborhoods");
+.on("error", function(error) {
+  console.log("Error importing neighborhoods from CSV: " + error.message);
   disconnectMongoose();
 });
 
