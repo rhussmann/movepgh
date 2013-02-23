@@ -5,7 +5,7 @@ var facet_schema = mongoose.Schema({
   name: { type: String, required: true },
   description: { type: String, required: true },
   category: { type: String, required: true },
-  neigborhood_scores: {}
+  neighborhood_scores: {}
 });
 
 module.exports = mongoose.model('facet', facet_schema);
