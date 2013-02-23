@@ -7,7 +7,7 @@ var MONGO_URL = MONGO_ROOT_URL + 'movepgh';
 
 // Setup mongoose and the facet model
 var mongoose = require("mongoose");
-var facet_model = require("../model/facet_model");
+var hood_model = require("../model/neighborhood_model");
 
 // Connect to mongo
 mongoose.connect(MONGO_URL);
@@ -21,7 +21,7 @@ csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Neighborho
 	neighborhood.description = row[2]
   console.log(JSON.stringify(neighborhood))
 
-  facet_model.findOneAndUpdate({id: neighborhood.id}, neighborhood, {upsert: true}, function updateHandler(err) {
+  hood_model.findOneAndUpdate({id: neighborhood.id}, neighborhood, {upsert: true}, function updateHandler(err) {
     if (err) {
       console.log("Unable to update neighborhood. " + err);
       retun;
