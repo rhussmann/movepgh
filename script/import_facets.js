@@ -24,10 +24,10 @@ csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Facets.csv
 
   facet_model.findOneAndUpdate({id: facet.id}, facet, {upsert: true}, function updateHandler(err) {
     if (err) {
-      console.log("Unable to update facet.");
+      console.log("Unable to update facet. " + err);
       retun;
     } else {
-      console.log("Facet " + facet.id + "updated");
+      console.log("Facet " + facet.id + " updated");
     }
   })
 });
