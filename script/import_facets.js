@@ -16,26 +16,28 @@ mongoose.connect(MONGO_URL);
 var facet_update_tasks = [];
 
 csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Facets.csv"))
-.transform( function(row, index){
+
+// When parsing a record, create an async task to update the record
+.on("record", function(row, index){
   if (index === 0) return
   var facet = {}
   facet.id = row[0]
   facet.name = row[1]
   facet.description = row[2]
   facet.category = row[3]
-  console.log(JSON.stringify(facet))
 
   // Add an async task for upserting this facet
   facet_update_tasks.push(createAsyncMongooseUpdateFunction(facet));
 })
 
 // Finished parsing the CSV, fire off the update tasks
-.on("end", function executeUpdates() {
+.on("end", function executeUpdates(count) {
+  console.log("Parsed " + count + " facets, attempting to update mongo...")
   async.parallel(facet_update_tasks, function(err, results) {
     if (err) {
       console.log("Error updating facets: " + err);
     } else {
-      console.log("Successfully updated facets");
+      console.log("Successfully updated facets in mongo");
     }
     disconnectMongoose();
   });
@@ -50,7 +52,6 @@ function createAsyncMongooseUpdateFunction(facet) {
       if (err) {
         return callback(err);
       } else {
-        console.log("Facet " + facet.id + " updated");
         return callback(null);
       }
     });
