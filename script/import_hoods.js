@@ -23,6 +23,7 @@ csv().from.stream(fs.createReadStream("script/csv/move-to-pitt_data - Neighborho
   neighborhood.id = row[0]
   neighborhood.name = row[1]
   neighborhood.description = row[2]
+  neighborhood.images = row[3].split(",")
 
   // Add an async task for upserting this facet
   hood_update_tasks.push(createAsyncMongooseUpdateFunction(neighborhood));
