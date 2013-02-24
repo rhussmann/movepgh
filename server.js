@@ -116,12 +116,6 @@ var SampleApp = function() {
             res.send("<html><body><img src='" + link + "'></body></html>");
         };
 
-        self.routes['/'] = function(req, res) {
-            res.setHeader('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html') );
-        };
-
-
         self.routes['/api/facets'] = function(req, res) {
             facet_controller.getFacets(req, res);
         };
@@ -130,8 +124,8 @@ var SampleApp = function() {
             decision_controller.getNeighborhoodsForRequest(req, res);
         };
 
-        self.routes['/test'] = function(req,res) {
-          return res.render('index', {title: 'Express'});
+        self.routes['/'] = function(req,res) {
+          return res.render('index', {title: 'Moowing'});
         }
     };
 
