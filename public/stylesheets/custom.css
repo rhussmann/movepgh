@@ -150,6 +150,20 @@ body {
   width: 300px;
 }
 
+.also {
+  float:right;
+  margin-right:50px;
+}
+
+.scores {
+  float:left;
+  margin-top:18px;
+  padding-left:15px;
+  padding-right:15px;
+  background:#eee;
+  border-radius:5px;
+}
+
 .scores dl dd {
   margin-left:0px;
 }
