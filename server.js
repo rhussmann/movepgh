@@ -123,6 +123,10 @@ var SampleApp = function() {
         self.routes['/api/decision'] = function(req, res) {
             decision_controller.getNeighborhoodsForRequest(req, res);
         };
+        
+        self.routes['/api/results'] = function(req, res) {
+            decision_controller.getNeighborhoodsForRequest(req, res);
+        };
 
         self.routes['/prioritize'] = function(req, res) {
           facet_controller.getFacets(function(facets){
