@@ -1,3 +1,21 @@
+#sortable1, #sortable2 { 
+  list-style-type: none; 
+  margin: 0; 
+  float: left; 
+  margin-right: 5px; 
+  width: 300px; 
+  background-color:#444;
+  border-radius: 10px;
+}
+#sortable1 li, #sortable2 li { 
+  border-radius: 8px;
+  margin-left:25px;
+  margin-top:5px;
+  margin-bottom:5px;
+  text-align:center;
+  font-size: 1.2em; 
+  width: 250px; 
+}
 
 body {
     padding-top: 40px; /* 40px to make the container go all the way to the bottom of the topbar */

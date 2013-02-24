@@ -1,35 +1,40 @@
 div.container
   div.hero-unit
     p Lorem fizzle my shizz rizzle amet, fizzle adipiscing daahng dawg. Nullam crazy , yo volutpizzle, suscipizzle quizzle, gravida vizzle, shiz. Pellentesque eget my shizz. Pimpin' eros. Ghetto izzle my shizz.
-    script(
+    
+    div.container
+      a.text-center.btn.btn-primary(href="#") Where should I live?
+      div.container
+        ul#sortable1.connectedSortable
+          each facet in facets
+            li.text-center.ui-state-default(id="#{facet.id}")= facet.name
+        ul#sortable2.connectedSortable
+          p(style = "text-align:center; color:white") Drag stuff here
+          
+    script
       $(function() {
         $( "#sortable1, #sortable2" ).sortable({
           connectWith: ".connectedSortable"
        }).disableSelection();
       });
-
-    div.container
-      ul#sortable1.connectedSortable
-        each facet in facets
-          li.ui-state-default(id="#{facet.id}")= facet.name
-
-
-      ul#sortable2.connectedSortable
-      a.btn.btn-primary(href="#") Search
-    
-      script
-        $(".btn-primary").click(function() {
-          var query_string = ""
-          var $selected_items = $("#sortable2").children().each(function (index, child){
+      
+      $(".btn-primary").click(function() {
+        console.log("click")
+        var query_string = ""
+        var $selected_items = $("#sortable2").children().each(function (index, child){
+          if(child.id) {
             query_string = query_string + child.id.toString() + ",";
-          });
-
-          if(query_string === "") {
-            console.log("Select something!");
-            return;
           }
-
-          // Trim off the last of comma
-          query_string = query_string.substring(0, query_string.length - 1)
-          window.location = "/results?facets=" + query_string;
         });
+
+        if(query_string === "") {
+          console.log("Select something!");
+          return;
+        }
+
+        // Trim off the last of comma
+        query_string = query_string.substring(0, query_string.length - 1)
+        window.location = "/results?facets=" + query_string;
+      });
+      
+    
