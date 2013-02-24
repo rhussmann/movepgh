@@ -1,0 +1,16 @@
+div.container
+  div.hero-unit
+    p Lorem fizzle my shizz rizzle amet, fizzle adipiscing daahng dawg. Nullam crazy , yo volutpizzle, suscipizzle quizzle, gravida vizzle, shiz. Pellentesque eget my shizz. Pimpin' eros. Ghetto izzle my shizz.
+    script(
+      $(function() {
+        $( "#sortable1, #sortable2" ).sortable({
+          connectWith: ".connectedSortable"
+       }).disableSelection();
+      });
+
+    ul#sortable1.connectedSortable
+      each facet in facets
+        li.ui-state-default= facet.name
+
+
+    ul#sortable2.connectedSortable
