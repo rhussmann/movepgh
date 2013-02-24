@@ -1,18 +1,18 @@
 Id,Name,Description,Category
-affordability,affordability,affordability,TheCategory
-parking,parking,parking,TheCategory
-public_transportation,public_transportation,public_transportation,TheCategory
-employment_opportunities,employment_opportunities,employment_opportunities,TheCategory
-theater,theater,theater,TheCategory
-music,music,music,TheCategory
-art,art,art,TheCategory
-nature,nature,nature,TheCategory
-fitness,fitness,fitness,TheCategory
-schools,schools,schools,TheCategory
-daycare_availability,daycare_availability,daycare_availability,TheCategory
-kid_activities,kid_activities,kid_activities,TheCategory
-safety,safety,safety,TheCategory
-grocery_proximity,grocery_proximity,grocery_proximity,TheCategory
-dining,dining,dining,TheCategory
-community_engagement,community_engagement,community_engagement,TheCategory
-pet_friendliness,pet_friendliness,pet_friendliness,TheCategory
+affordability,Affordability,Cost of rent,TheCategory
+parking,Parking,Ease and availability of parking,TheCategory
+public_transportation,Public Transportation,Easy access to public transportation,TheCategory
+employment_opportunities,Employment Opportunities,Number of job openings,TheCategory
+theater,Theater,Theatrical events in the area,TheCategory
+music,Music,Live music in the area,TheCategory
+art,Art,Art and museums in the area,TheCategory
+nature,Nature,Parks in the area,TheCategory
+fitness,Fitness,Access to fitness equipment and programs,TheCategory
+schools,Schools,Quality of schools in the area,TheCategory
+daycare_availability,Daycare Availability,Availability of daycare services in the area,TheCategory
+kid_activities,Kid Activities,Activities for kids in the area,TheCategory
+safety,Safety,"Overall safety of the area, crime rate",TheCategory
+grocery_proximity,Grocery Proximity,Access to groceries,TheCategory
+dining,Dining,Restraunts in the area,TheCategory
+community_engagement,Community Engagement,Community events and involvment,TheCategory
+pet_friendliness,Pet Friendliness,Tolerance of pets ,TheCategory
