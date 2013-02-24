@@ -117,7 +117,7 @@ var SampleApp = function() {
         };
 
         self.routes['/api/facets'] = function(req, res) {
-            facet_controller.getFacets(req, res);
+            facet_controller.getFacetsForResponse(req, res);
         };
         
         self.routes['/api/decision'] = function(req, res) {
@@ -125,7 +125,9 @@ var SampleApp = function() {
         };
 
         self.routes['/prioritize'] = function(req, res) {
-          return res.render('prioritize', {title: "Let's Get Started"});
+          facet_controller.getFacets(function(facets){
+            return res.render('prioritize', {title: "Let's Get Started", facets:facets});
+          })
         };
 
         self.routes['/'] = function(req,res) {
