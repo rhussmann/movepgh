@@ -79,3 +79,23 @@ body {
   float: center;
   list-style: none;
 }
+
+.postcard {
+  position: relative;
+  width: 100%;
+}
+
+.postcard img{
+  border: 10px solid #fff;
+  box-shadow: -10px 10px 30px #555;
+  display: block;
+  margin: 0 auto;
+}
+.postcard h1 {
+  color: white;
+  text-shadow: -3px 3px #555;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+}
