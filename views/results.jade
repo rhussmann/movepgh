@@ -15,3 +15,12 @@ div#results-pane.container
             dd
               div.progress
                 div.bar(style="width: #{results[0].facet_scores[fid] * 100}%")
+
+  h1 You may also like...
+  div.otherPlaces
+    each other_city in results.slice(1)
+        a(href="/hood?id=#{other_city.hood}")
+          div.aPlace
+            p
+              img(src="#{other_city.hood_metadata.images[0]}", style="float: left")
+              | #{other_city.hood_metadata.name}

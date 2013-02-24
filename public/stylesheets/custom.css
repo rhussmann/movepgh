@@ -153,3 +153,31 @@ body {
 .scores dl dd {
   margin-left:0px;
 }
+
+.otherPlaces {
+}
+
+.otherPlaces ul {
+  float: left;
+  background-color: #888;
+  padding: 10px;
+}
+
+.otherPlaces ul li {
+  display: inline;
+}
+
+.aPlace {
+  float: left;
+  width: 100px;
+  margin: 10px;
+}
+
+.aPlace img {
+  max-width: 100px;
+  border: 2px solid #fff;
+}
+
+.aPlace p {
+  font-size: 12px;
+}

@@ -13,6 +13,7 @@ var MONGO_URL = MONGO_ROOT_URL + 'movepgh';
 
 var facet_controller = require('./controller/facet_controller');
 var decision_controller = require('./controller/decision_controller');
+var hood_controller = require("./controller/neighborhood_controller");
 
 
 /**
@@ -126,6 +127,10 @@ var SampleApp = function() {
         
         self.routes['/api/results'] = function(req, res) {
             decision_controller.getNeighborhoodsForRequest(req, res);
+        };
+
+        self.routes['/hood'] = function(req, res) {
+          hood_controller.sendHello(req, res);
         };
 
         self.routes['/prioritize'] = function(req, res) {
