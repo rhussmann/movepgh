@@ -131,6 +131,10 @@ var SampleApp = function() {
         self.routes['/'] = function(req,res) {
           return res.render('index', {title: 'Moowing'});
         }
+        
+        self.routes['/results'] = function(req,res) {
+          return res.render('results', {title: 'Moowing'});
+        }
     };
 
 
