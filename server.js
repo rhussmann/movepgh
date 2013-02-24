@@ -1,8 +1,9 @@
 #!/bin/env node
 //  OpenShift sample Node application
-var express = require('express');
-var fs      = require('fs');
+var express  = require('express');
+var fs       = require('fs');
 var mongoose = require("mongoose");
+var path     = require("path")
 
 
 // Mongo configuration parameters
@@ -119,8 +120,8 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
         };
-		
-		
+
+
         self.routes['/api/facets'] = function(req, res) {
             facet_controller.getFacets(req, res);
         };
@@ -128,6 +129,10 @@ var SampleApp = function() {
         self.routes['/api/decision'] = function(req, res) {
             decision_controller.getNeighborhoodsForRequest(req, res);
         };
+
+        self.routes['/test'] = function(req,res) {
+          return res.render('index', {title: 'Express'});
+        }
     };
 
 
@@ -138,9 +143,12 @@ var SampleApp = function() {
     self.initializeServer = function() {
         self.createRoutes();
         self.app = express.createServer();
-	
-		// Connect to mongo
-		mongoose.connect(MONGO_URL);
+
+        self.app.set('view engine', 'jade');
+        self.app.use(express.static(path.join(__dirname + '/public')));
+
+        // Connect to mongo
+        mongoose.connect(MONGO_URL);
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {

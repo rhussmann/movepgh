@@ -28,6 +28,7 @@
     "async": "*",
     "csv": "*",
     "express": "2.5.8",
+    "jade": "latest",
     "mongoose": "*"
   },
   "devDependencies": {},
