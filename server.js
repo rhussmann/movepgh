@@ -126,7 +126,7 @@ var SampleApp = function() {
         };
         
         self.routes['/api/decision'] = function(req, res) {
-            decision_controller.getNeighborhoodsForFacets(req, res);
+            decision_controller.getNeighborhoodsForRequest(req, res);
         };
     };
 
