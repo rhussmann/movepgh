@@ -122,3 +122,11 @@ body {
 #results-pane p {
   padding-top:20px;
 }
+
+.scores dl {
+  width: 300px;
+}
+
+.scores dl dd {
+  margin-left:0px;
+}
