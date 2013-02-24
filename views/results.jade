@@ -21,7 +21,7 @@ div#results-pane.container
       h3(style="margin-bottom:-15px") You may also like...
       div.otherPlaces
         each other_city in results.slice(1)
-            a(href="/hood?id=#{other_city.hood}")
+            a(href="/results?hood=#{other_city.hood}&facets=#{fids}")
               div.aPlace
                 p
                   img(src="#{other_city.hood_metadata.images[0]}", style="float: left")

@@ -129,10 +129,6 @@ var SampleApp = function() {
             decision_controller.getNeighborhoodsForRequest(req, res);
         };
 
-        self.routes['/hood'] = function(req, res) {
-          hood_controller.sendHello(req, res);
-        };
-
         self.routes['/prioritize'] = function(req, res) {
           facet_controller.getFacets(function(facets){
             return res.render('prioritize', {title: "Let's Get Started", facets:facets});
@@ -147,12 +143,27 @@ var SampleApp = function() {
           if(req.query.facets==null || req.query.facets==undefined || req.query.facets=='') {
             return resp.send(400)
           }
+          var hid=req.query.hood;
           fids = req.query.facets.split(",")
           facet_controller.getFacetNameLookup(function(name_lookup) {
             decision_controller.getNeighborhoodsForFacets(fids, function(results) {
+              new_results = []
+              results.forEach(function(h) { 
+                if(h.hood !== hid) {
+                  new_results.push(h)
+                }
+              })
+              
+              results.forEach(function(h) { 
+                if(h.hood === hid) {
+                  new_results.unshift(h)
+                }
+              })
+              
+              console.log(new_results)
               return res.render('results', {
                 title: 'And the winner is...', 
-                results: results, fids:fids, facets: name_lookup
+                results: new_results, fids:fids, facets: name_lookup
               });
             });
           })
