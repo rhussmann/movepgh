@@ -1,8 +1,9 @@
-div.hero-unit
-  h4.text-center.muted "And the winner is..."
+div#results-pane.container
+  p.text-center.muted "And the winner is..."
   div.postcard
     h1.text-center #{results[0].hood_metadata.name}
     img(src="#{results[0].hood_metadata.images[0]}")
 
   div.container
     p #{results[0].hood_metadata.description}
+    

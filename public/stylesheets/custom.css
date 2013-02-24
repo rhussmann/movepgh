@@ -108,6 +108,7 @@ body {
   box-shadow: -10px 10px 30px #555;
   display: block;
   margin: 0 auto;
+  max-width: 600px;
 }
 .postcard h1 {
   color: white;
@@ -116,4 +117,8 @@ body {
   top: 25px;
   left: 0;
   width: 100%;
+}
+
+#results-pane p {
+  padding-top:20px;
 }
