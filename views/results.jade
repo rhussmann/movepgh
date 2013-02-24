@@ -7,3 +7,10 @@ div#results-pane.container
   div.container
     p #{results[0].hood_metadata.description}
     
+    div.container.scores
+      each fid in fids
+        dl.dl-horizontal
+          dt #{facets[fid]}
+          dd
+            div.progress
+              div.bar(style="width: #{results[0].facet_scores[fid] * 100}%")

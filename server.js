@@ -143,9 +143,14 @@ var SampleApp = function() {
             return resp.send(400)
           }
           fids = req.query.facets.split(",")
-          decision_controller.getNeighborhoodsForFacets(fids, function(results) {
-            return res.render('results', {title: 'And the winner is...', results: results});
-          });
+          facet_controller.getFacetNameLookup(function(name_lookup) {
+            decision_controller.getNeighborhoodsForFacets(fids, function(results) {
+              return res.render('results', {
+                title: 'And the winner is...', 
+                results: results, fids:fids, facets: name_lookup
+              });
+            });
+          })
         }
     };
 

@@ -11,6 +11,15 @@ var FacetController =  {
     this.getFacets(function(facets) {
       resp.send(facets)
     })
+  },
+  getFacetNameLookup: function(callback) {
+    facet_model.find({}, function(err, facets) {
+      var map = {}
+      facets.forEach(function(f) {
+        map[f.id] = f.name
+      })
+      callback(map)
+    })
   }
 }
 
