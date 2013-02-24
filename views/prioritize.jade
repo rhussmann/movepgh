@@ -2,12 +2,13 @@ div.container
   div.hero-unit
     p Lorem fizzle my shizz rizzle amet, fizzle adipiscing daahng dawg. Nullam crazy , yo volutpizzle, suscipizzle quizzle, gravida vizzle, shiz. Pellentesque eget my shizz. Pimpin' eros. Ghetto izzle my shizz.
     
-    div.container
+    div.container.priority-controls
       a.text-center.btn.btn-primary(href="#") Where should I live?
       div.container
         ul#sortable1.connectedSortable
           each facet in facets
-            li.text-center.ui-state-default(id="#{facet.id}")= facet.name
+            li.text-center.ui-state-default(id="#{facet.id}")
+              h5=facet.name
         ul#sortable2.connectedSortable
           p(style = "text-align:center; color:white") Drag stuff here
           
