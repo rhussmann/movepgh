@@ -21,6 +21,8 @@ var DecisionController =  {
         
       scores = {}
       fids.forEach(function(fid, rank) {
+        if(!facet_map[fid]) return 
+        
         for(var hood in facet_map[fid].neighborhood_scores) {
           if(!facet_map[fid].neighborhood_scores.hasOwnProperty(hood)) {
             continue
