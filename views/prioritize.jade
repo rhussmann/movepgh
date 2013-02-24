@@ -8,9 +8,28 @@ div.container
        }).disableSelection();
       });
 
-    ul#sortable1.connectedSortable
-      each facet in facets
-        li.ui-state-default= facet.name
+    div.container
+      ul#sortable1.connectedSortable
+        each facet in facets
+          li.ui-state-default(id="#{facet.id}")= facet.name
 
 
-    ul#sortable2.connectedSortable
+      ul#sortable2.connectedSortable
+      a.btn.btn-primary(href="#") Click Me
+    
+      script
+        $(".btn-primary").click(function() {
+          var query_string = ""
+          var $selected_items = $("#sortable2").children().each(function (index, child){
+            query_string = query_string + child.id.toString() + ",";
+          });
+
+          if(query_string === "") {
+            console.log("Select something!");
+            return;
+          }
+
+          // Trim off the last of comma
+          query_string = query_string.substring(0, query_string.length - 1)
+          window.location = "/results?facets=" + query_string;
+        });
