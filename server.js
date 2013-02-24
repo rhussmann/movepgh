@@ -135,7 +135,13 @@ var SampleApp = function() {
         }
         
         self.routes['/results'] = function(req,res) {
-          return res.render('results', {title: 'Moowing'});
+          if(req.query.facets==null || req.query.facets==undefined || req.query.facets=='') {
+            return resp.send(400)
+          }
+          fids = req.query.facets.split(",")
+          decision_controller.getNeighborhoodsForFacets(fids, function(results) {
+            return res.render('results', {title: 'And the winner is...', results: results});
+          });
         }
     };
 
