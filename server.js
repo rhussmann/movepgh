@@ -124,6 +124,10 @@ var SampleApp = function() {
             decision_controller.getNeighborhoodsForRequest(req, res);
         };
 
+        self.routes['/prioritize'] = function(req, res) {
+          return res.render('prioritize', {title: "Let's Get Started"});
+        };
+
         self.routes['/'] = function(req,res) {
           return res.render('index', {title: 'Moowing'});
         }
@@ -140,6 +144,7 @@ var SampleApp = function() {
 
         self.app.set('view engine', 'jade');
         self.app.use(express.static(path.join(__dirname + '/public')));
+        self.app.set("view options", {pretty: true});
 
         // Connect to mongo
         mongoose.connect(MONGO_URL);
